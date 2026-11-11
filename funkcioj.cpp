@@ -884,6 +884,14 @@ QString kiuSistemo (QString celo)
         if (celo == "skribebla") vojo =  QStandardPaths::writableLocation( QStandardPaths::AppLocalDataLocation);
     }
 
+    // Any other system (e.g. desktop Linux, where productType() returns the
+    // distribution name such as "ubuntu" or "debian"): media files live in an
+    // "assets" directory next to the executable.
+    if (vojo.isEmpty()) {
+        if (celo == "multrimedoj") vojo = QApplication::applicationDirPath() + "/assets/";
+        if (celo == "skribebla") vojo =  QStandardPaths::writableLocation( QStandardPaths::AppLocalDataLocation);
+    }
+
     if (vojo.right(1) != "/") vojo.append("/");
     return (vojo);
 }

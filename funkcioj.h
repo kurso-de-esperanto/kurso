@@ -46,12 +46,13 @@ const QString video_finajho=".mp4";
 const QString mp3_finajho=".mp3";
 const QString video_finajho=".mov";
 #endif
-/*
-#ifdef Q_OS_LINUX
-const QString mp3_finajho=".ogg";
-const QString video_finajho=".ogv";
+// Desktop Linux (Q_OS_LINUX is also defined on Android, hence the exclusion).
+// The bundled assets are more complete in MP3 than in OGG, and GStreamer
+// handles both MP3 and MP4, so use the same formats as Android.
+#if defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+const QString mp3_finajho=".mp3";
+const QString video_finajho=".mp4";
 #endif
-*/
 
 // eksteraj variabloj, uzotaj dum la tuta programo
 extern int NumSec;

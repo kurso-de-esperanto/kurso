@@ -149,6 +149,13 @@ else {
 }
 
 
+# Desktop Linux: the program looks for its media files (sounds, videos) in an
+# "assets" directory next to the executable. Link it to the bundled assets so
+# the program can be run straight from the build directory.
+unix:!android:!macx {
+    QMAKE_POST_LINK += ln -sfn $$shell_quote($$PWD/pkg_src/assets) $$shell_quote($$OUT_PWD/assets)
+}
+
 RC_FILE = ikono.rc
 
 DISTFILES += \
