@@ -1,0 +1,43 @@
+# Build directories (build out of tree, e.g. in build/)
+/build/
+/build-*/
+
+# qmake / make output when building in-tree
+Makefile
+Makefile.Debug
+Makefile.Release
+.qmake.stash
+*.o
+*.obj
+moc_*.cpp
+moc_*.h
+moc_predefs.h
+qrc_*.cpp
+ui_*.h
+/kursokape
+*.exe
+/debug/
+/release/
+
+# Qt Creator user settings (machine-specific)
+*.pro.user
+*.pro.user.*
+CMakeLists.txt.user
+
+# Android build output
+/android-build/
+.gradle/
+local.properties
+
+# Signing keys must never be committed
+*.keystore
+*.jks
+
+# Editors and OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*~
